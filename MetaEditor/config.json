@@ -1,0 +1,20 @@
+{
+    "root": "G:\\Music\\Classic",
+    "includes": [
+        "100 Best of Bach",
+        "100 Best of Beethoven",
+        "100 Best of Mozart"
+    ],
+    "excludes": [
+    ],
+    "extensions": [
+        ".wav",
+        ".flac",
+        ".ape",
+        ".m4a",
+        ".mp3"
+    ],
+    "auto": false,
+    "thread": 8,
+    "delay": 10
+}
