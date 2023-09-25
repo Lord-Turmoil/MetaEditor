@@ -9,8 +9,6 @@ This is a simple editor for music meta data in C#.
 > This tool depends on [Audio Tools Library (ATL) for .NET](https://github.com/Zeugma440/atldotnet#audio-tools-library-atl-for-net---). Much thanks! 🥰
 >
 
-[![Build](https://github.com/Lord-Turmoil/MetaEditor/actions/workflows/dotnet-desktop.yml/badge.svg?branch=main)](https://github.com/Lord-Turmoil/MetaEditor/actions/workflows/dotnet-desktop.yml)
-
 ## Before you start
 
 This is not a out-of-box tool, which means you have to modify the source code for your editing actions. The current code is build on .NET 6.
