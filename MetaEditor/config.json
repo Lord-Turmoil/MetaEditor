@@ -1,9 +1,6 @@
 {
-    "root": "G:\\Music\\Classic",
+    "root": "F:\\Music\\Songs\\John Lennon - Plastic Ono Band (The Ultimate Collection)",
     "includes": [
-        "100 Best of Bach",
-        "100 Best of Beethoven",
-        "100 Best of Mozart"
     ],
     "excludes": [
     ],
@@ -14,7 +11,7 @@
         ".m4a",
         ".mp3"
     ],
-    "auto": false,
+    "auto": true,
     "thread": 8,
     "delay": 10
 }

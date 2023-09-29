@@ -1,8 +1,8 @@
 {
   "profiles": {
     "MetaEditor": {
-      "commandName": "Project",
-      "workingDirectory": "F:\\Development\\Projects\\Utility\\MetaEditor\\MetaEditor\\MetaEditor"
+        "commandName": "Project",
+        "workingDirectory": "F:\\Development\\Projects\\Utility\\MetaEditor\\MetaEditor"
     }
   }
 }

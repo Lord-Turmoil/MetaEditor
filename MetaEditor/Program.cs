@@ -12,7 +12,7 @@ class Program
         var manager = new EditorManager("config.json");
 
         manager.AddAction((track, folder, filename) => {
-            track.Artist = folder[12..];
+            track.Album = "Plastic Ono Band (The Ultimate Collection) " + folder;
         });
 
         manager.Run();
