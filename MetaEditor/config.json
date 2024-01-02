@@ -1,5 +1,5 @@
 {
-    "root": "F:\\Music\\Songs\\John Lennon - Plastic Ono Band (The Ultimate Collection)",
+    "root": "F:\\Music\\Classic\\Strauss Complete Orchestral Works",
     "includes": [
     ],
     "excludes": [
@@ -9,9 +9,9 @@
         ".flac",
         ".ape",
         ".m4a",
-        ".mp3"
+        ".mp3",
     ],
     "auto": true,
-    "thread": 8,
+    "thread": 16,
     "delay": 10
 }

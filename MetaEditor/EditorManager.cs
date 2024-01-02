@@ -8,6 +8,8 @@ namespace MetaEditor;
 internal class EditorManager
 {
     private readonly List<Action<Track, string, string>> _actions = new();
+    private readonly List<Action<string, string, string>> _fileActions = new();
+
     private readonly Configuration _config;
 
     private readonly Queue<EditAction> _editActions = new();
@@ -34,7 +36,7 @@ internal class EditorManager
     private IEnumerable<string> GetFileList(string path)
     {
         IEnumerable<string> fileList = Directory.EnumerateFiles(path);
-        return fileList.Where(file => _config.Extensions.Contains(Path.GetExtension(file))).ToList();
+        return fileList.Where(file => _config.Extensions.Contains(Path.GetExtension(file).ToLower())).ToList();
     }
 
 
@@ -44,10 +46,15 @@ internal class EditorManager
         return this;
     }
 
+    public EditorManager AddFileAction(Action<string, string, string> action)
+    {
+        _fileActions.Add(action);
+        return this;
+    }
 
     public void Run()
     {
-        if (!_actions.Any())
+        if (!_actions.Any() && !_fileActions.Any())
         {
             Console.WriteLine("No action added.");
             return;
@@ -60,7 +67,7 @@ internal class EditorManager
         PrepareActions();
 
         Console.Write("Ready? (Y/N) ");
-        string response;
+        string? response;
         do
         {
             response = Console.ReadLine();
@@ -121,7 +128,7 @@ internal class EditorManager
     {
         var threadList = new List<Thread>();
         Thread thread;
-        for (var i = 0; i < 8; i++)
+        for (int i = 0; i < _config.Threads; i++)
         {
             thread = new Thread(EditTask);
             threadList.Add(thread);
@@ -161,6 +168,13 @@ internal class EditorManager
             foreach (Action<Track, string, string> action in _actions)
             {
                 action(track, editAction.Folder, editAction.Filename);
+            }
+
+            foreach (Action<string, string, string> action in _fileActions)
+            {
+                string? dir = Path.GetDirectoryName(editAction.Path);
+                string fullDir = dir == null ? "" : Path.GetFullPath(dir);
+                action(editAction.Path, fullDir, editAction.Filename);
             }
 
             track.Save();
